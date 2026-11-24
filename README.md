@@ -1,6 +1,6 @@
 # Currículo de Emanuel Melo Alexandre
 
-Coordenador de Suporte e Serviços · Folha de Pagamento Pública e eSocial · Implantação de ERP/SaaS
+Gestão de Equipes · Suporte e Implantação de Sistemas · Folha de Pagamento e eSocial · Dados (SQL e Power BI)
 
 - Página: https://emanuelmelo87.github.io/curriculo/
 - PDF: [Curriculo-Emanuel-Melo.pdf](Curriculo-Emanuel-Melo.pdf)
