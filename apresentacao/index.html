@@ -107,15 +107,25 @@ b{color:#fff;font-weight:600}
 .three p{font-size:16px;color:var(--muted)}
 .pg{position:absolute;right:40px;bottom:26px;font-size:13px;letter-spacing:.2em;color:#5d6b80}
 /* depoimentos */
-.quotes{margin-top:40px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;flex:1}
-.q{background:var(--panel);padding:30px 28px 26px;display:flex;flex-direction:column;gap:22px;position:relative}
-.q::before{content:"\201C";font:500 120px/0.7 Lora,serif;color:var(--gold);height:44px}
-.q p{font:400 23px/1.5 Lora,Georgia,serif;color:var(--ink)}
-.q span{margin-top:auto;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);border-top:1px solid var(--line);padding-top:16px}
+#dep .pad{padding:46px 76px 50px}
+#dep h2{font-size:48px}
+#dep .ey{margin-bottom:16px}
+.quotes{margin-top:26px;min-height:0;display:grid;grid-template-columns:minmax(0,1.15fr) repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:20px;flex:1}
+.q{background:var(--panel);padding:22px 26px 18px;display:flex;flex-direction:column;gap:10px;position:relative}
+.q::before{content:"\201C";position:absolute;right:22px;top:14px;font:500 90px/1 Lora,serif;color:rgba(201,164,106,.35)}
+.q p{font:400 19px/1.45 Lora,Georgia,serif;color:var(--ink);padding-right:50px}
+.q span{margin-top:auto;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);border-top:1px solid var(--line);padding-top:12px}
+.q.lead1{grid-row:span 2;padding:34px 34px 28px;border-left:3px solid var(--gold)}
+.q.lead1::before{position:static;font-size:120px;line-height:.7;height:50px;color:var(--gold)}
+.q.lead1 p{font-size:28px;padding:0}
+html.flat #dep .pad{padding:26px 20px}
+html.flat #dep h2{font-size:28px}
 html.flat .quotes{grid-template-columns:minmax(0,1fr);gap:14px}
 html.flat .q{padding:22px 20px}
 html.flat .q p{font-size:18px}
-html.flat .q::before{font-size:80px;height:30px}
+html.flat .q::before{font-size:70px}
+html.flat .q.lead1{grid-row:auto}
+html.flat .q.lead1 p{font-size:19px}
 /* barra */
 #bar{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:6px;background:rgba(11,21,36,.86);backdrop-filter:blur(8px);border:1px solid var(--line);padding:6px;z-index:5}
 #bar button{all:unset;cursor:pointer;color:var(--ink);font:500 14px Inter,sans-serif;height:40px;min-width:40px;padding:0 12px;display:flex;align-items:center;justify-content:center;gap:6px}
@@ -273,9 +283,10 @@ html.flat #bar{display:none}
     <p class="ey">O que dizem colegas e clientes</p>
     <h2>Liderança que as pessoas <em>lembram.</em></h2>
     <div class="quotes">
-      <div class="q"><p>Você sempre foi um líder excelente. Me incentivou a crescer e a melhorar, e eu sempre vou ser grata por isso. Tenho certeza de que você vai continuar inspirando as pessoas que cruzam seu caminho.</p><span>Analista da equipe que liderei</span></div>
+      <div class="q lead1"><p>Você sempre foi um líder excelente. Me incentivou a crescer e a melhorar, e eu sempre vou ser grata por isso. Tenho certeza de que você vai continuar inspirando as pessoas que cruzam seu caminho.</p><span>Analista da equipe que liderei</span></div>
       <div class="q"><p>Um profissional super competente, com um coração gigante. Tudo aquilo com que você contribuiu ficará marcado. Obrigado por toda a disponibilidade e por toda a ajuda.</p><span>Parceira de negócios</span></div>
       <div class="q"><p>Te admiro muito em todos os aspectos. Extremamente competente e inteligente. Obrigada por todos os momentos de aprendizado e parceria que tivemos.</p><span>Colega de trabalho</span></div>
+      <div class="q"><p>Você sempre foi alguém muito especial, que fez a diferença aqui dentro. Você é muito bom.</p><span>Colega de equipe</span></div>
       <div class="q"><p>Elogiei o seu trabalho e o do pessoal da sua equipe, que sempre me atende tão bem. Você é um bom amigo que eu fiz através do trabalho.</p><span>Cliente do setor público</span></div>
     </div>
   </div>
