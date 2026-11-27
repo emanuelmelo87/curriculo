@@ -118,14 +118,15 @@ html.flat .kp .tg{font-size:30px}
 #dep .pad{padding:46px 76px 50px}
 #dep h2{font-size:48px}
 #dep .ey{margin-bottom:16px}
-.quotes{margin-top:26px;min-height:0;display:grid;grid-template-columns:minmax(0,1.15fr) repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:20px;flex:1}
+.quotes{margin-top:26px;min-height:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:20px;flex:1}
 .q{background:var(--panel);padding:22px 26px 18px;display:flex;flex-direction:column;gap:10px;position:relative}
 .q::before{content:"\201C";position:absolute;right:22px;top:14px;font:500 90px/1 Lora,serif;color:rgba(201,164,106,.35)}
 .q p{font:400 19px/1.45 Lora,Georgia,serif;color:var(--ink);padding-right:50px}
 .q span{margin-top:auto;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);border-top:1px solid var(--line);padding-top:12px}
-.q.lead1{grid-row:span 2;padding:34px 34px 28px;border-left:3px solid var(--gold)}
-.q.lead1::before{position:static;font-size:120px;line-height:.7;height:50px;color:var(--gold)}
-.q.lead1 p{font-size:28px;padding:0}
+.q.lead1{grid-row:span 2;padding:28px 28px 22px;border-left:3px solid var(--gold)}
+.q.lead1::before{position:static;line-height:.7;color:var(--gold)}
+.q.lead1 p{font-size:21px;padding:0}
+.q.lead1::before{font-size:90px;height:36px}
 html.flat #dep .pad{padding:26px 20px}
 html.flat #dep h2{font-size:28px}
 html.flat .quotes{grid-template-columns:minmax(0,1fr);gap:14px}
@@ -306,10 +307,11 @@ html.flat #bar{display:none}
     <p class="ey">O que dizem colegas e clientes</p>
     <h2>Liderança que as pessoas <em>lembram.</em></h2>
     <div class="quotes">
-      <div class="q lead1"><p>Você sempre foi um líder excelente. Me incentivou a crescer e a melhorar, e eu sempre vou ser grata por isso. Tenho certeza de que você vai continuar inspirando as pessoas que cruzam seu caminho.</p><span>Analista da equipe que liderei</span></div>
+      <div class="q"><p>Você sempre foi um líder excelente. Me incentivou a crescer e a melhorar, e eu sempre vou ser grata por isso. Tenho certeza de que você vai continuar inspirando as pessoas que cruzam seu caminho.</p><span>Analista da equipe que liderei</span></div>
       <div class="q"><p>Um profissional super competente, com um coração gigante. Tudo aquilo com que você contribuiu ficará marcado. Obrigado por toda a disponibilidade e por toda a ajuda.</p><span>Parceira de negócios</span></div>
       <div class="q"><p>Te admiro muito em todos os aspectos. Extremamente competente e inteligente. Obrigada por todos os momentos de aprendizado e parceria que tivemos.</p><span>Colega de trabalho</span></div>
       <div class="q"><p>Você sempre foi alguém muito especial, que fez a diferença aqui dentro. Você é muito bom.</p><span>Colega de equipe</span></div>
+      <div class="q"><p>Sempre preocupado com o cliente e com o time. Me deu minha primeira oportunidade, me orientou e me promoveu. Além de chefe, sempre foi um amigo.</p><span>Analista que contratei e promovi</span></div>
       <div class="q"><p>Elogiei o seu trabalho e o do pessoal da sua equipe, que sempre me atende tão bem. Você é um bom amigo que eu fiz através do trabalho.</p><span>Cliente do setor público</span></div>
     </div>
   </div>
