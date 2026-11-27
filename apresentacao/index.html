@@ -106,6 +106,14 @@ b{color:#fff;font-weight:600}
 .three h3{font-size:26px;margin-bottom:6px}
 .three p{font-size:16px;color:var(--muted)}
 .pg{position:absolute;right:40px;bottom:26px;font-size:13px;letter-spacing:.2em;color:#5d6b80}
+/* indicadores */
+.kpis{margin-top:34px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.kp{background:var(--panel);padding:24px 26px;border-top:2px solid var(--gold);display:flex;flex-direction:column;gap:8px}
+.kp .tg{font:500 40px/1 Lora,serif;color:var(--gold)}
+.kp h3{font-size:22px}
+.kp p{font-size:16.5px;color:#cfd5de;line-height:1.5}
+html.flat .kpis{grid-template-columns:minmax(0,1fr);gap:12px}
+html.flat .kp .tg{font-size:30px}
 /* depoimentos */
 #dep .pad{padding:46px 76px 50px}
 #dep h2{font-size:48px}
@@ -277,6 +285,22 @@ html.flat #bar{display:none}
   </div>
 </section>
 
+<section class="f" id="kpi" data-x="-5000" data-y="-2200" data-s="1" data-r="3" data-t="Indicadores">
+  <div class="pad">
+    <p class="ey">Gestão por indicadores</p>
+    <h2>Decisão com número na mão, <em>não com achismo.</em></h2>
+    <div class="kpis">
+      <div class="kp"><p class="tg">CSAT</p><h3>Satisfação a cada atendimento</h3><p>Acompanhamento da satisfação do cliente por analista, equipe e tipo de demanda.</p></div>
+      <div class="kp"><p class="tg">NPS</p><h3>Lealdade dos clientes</h3><p>Leitura de promotores e detratores para orientar planos de ação e retenção.</p></div>
+      <div class="kp"><p class="tg">SLA</p><h3>Prazos de atendimento</h3><p>Gestão de ANS/SLA de resposta e solução, filas e prioridades.</p></div>
+      <div class="kp"><p class="tg">Qualidade</p><h3>Qualidade do atendimento</h3><p>Avaliação dos atendimentos, feedback e desenvolvimento contínuo da equipe.</p></div>
+      <div class="kp"><p class="tg">Metas</p><h3>Serviços e faturamento</h3><p>Acompanhamento das metas de serviços e do faturamento gerado pela área.</p></div>
+      <div class="kp"><p class="tg">Contratos</p><h3>Análise de contratos</h3><p>Escopo e condições contratadas confrontados com o que é entregue e faturado.</p></div>
+    </div>
+    <p class="call" style="margin-top:auto;max-width:none">Indicadores acompanhados em <b>painéis no Power BI</b>, transformados em rotina de gestão com a equipe e a liderança.</p>
+  </div>
+</section>
+
 <section class="f" id="dep" data-x="-3000" data-y="-3050" data-s="1" data-r="-2" data-t="O que dizem">
   <div class="pad">
     <p class="ey">O que dizem colegas e clientes</p>
@@ -349,10 +373,10 @@ frames.forEach(f=>{const o=T[f.id],a=rad(o.r),hw=W*o.s/2,hh=H*o.s/2;
   [[-1,-1],[1,-1],[1,1],[-1,1]].forEach(([u,v])=>{const px=o.x+u*hw*Math.cos(a)-v*hh*Math.sin(a),py=o.y+u*hw*Math.sin(a)+v*hh*Math.cos(a);
     x0=Math.min(x0,px);x1=Math.max(x1,px);y0=Math.min(y0,py);y1=Math.max(y1,py)})});
 T.over={x:(x0+x1)/2,y:(y0+y1)/2,s:Math.max((x1-x0+600)/W,(y1-y0+600)/H),r:0,t:'Visão geral'};
-const steps=['over','capa','traj',...[0,1,2,3,4,5,6,7].map(i=>'traj-c'+i),'traj','dest','tec','ia','cap','dep','mov','over'];
+const steps=['over','capa','traj',...[0,1,2,3,4,5,6,7].map(i=>'traj-c'+i),'traj','dest','tec','ia','cap','kpi','dep','mov','over'];
 // decoração: anéis e caminho
 const deco=document.getElementById('deco');
-const main=['capa','traj','dest','tec','ia','cap','dep','mov'];
+const main=['capa','traj','dest','tec','ia','cap','kpi','dep','mov'];
 let d='M'+T.capa.x+' '+T.capa.y;
 for(let i=1;i<main.length;i++){const a=T[main[i-1]],b=T[main[i]];const mx=(a.x+b.x)/2,my=(a.y+b.y)/2,k=.25;d+=` Q${mx-(b.y-a.y)*k} ${my+(b.x-a.x)*k} ${b.x} ${b.y}`;}
 deco.innerHTML=[1500,2700,3900,5100].map((r,i)=>`<circle cx="0" cy="0" r="${r}" fill="none" stroke="#c9a46a" stroke-opacity="${.14-i*.025}" stroke-width="${6-i}"/>`).join('')
