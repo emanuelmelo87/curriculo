@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Emanuel Melo Alexandre</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Apresentação profissional de Emanuel Melo Alexandre: 18 anos em suporte, implantação, gestão e dados na gestão pública, com IA aplicada.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+/* VOICE work, pitch pessoal no espírito do modelo enviado (verde-petróleo + areia, serifa)
+   IDEA uma tela infinita estilo Prezi: a carreira como mapa, com zoom de uma etapa para a próxima
+   PICTURE o próprio mapa: anéis concêntricos, caminho tracejado e quadros espalhados; a trajetória tem 8 capítulos aninhados
+   COLOUR fundo marinho #0d1828, painéis #14403c, tinta creme #f2ede3, dourado #d4b98c, branco da foto
+   TYPE Lora (títulos) + Inter (texto)
+   LAYOUT tela cheia com câmera; abaixo de 760px vira rolagem vertical com os quadros empilhados */
+:root{--bg:#0a2321;--navy:#0e2c2a;--panel:#14403c;--panel2:#1d524c;--ink:#f2ede3;--muted:#a9bcb8;--gold:#d4b98c;--gold2:#e8d5b0;--line:rgba(242,237,227,.14);--photo:#f3f3f1;color-scheme:dark}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0a2321}}
+:root[data-theme="dark"]{--bg:#0a2321}
+:root[data-theme="light"]{--bg:#0a2321}
+*{box-sizing:border-box;min-width:0}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 Inter,system-ui,sans-serif;overflow:hidden}
+#stage{position:fixed;inset:0;overflow:hidden;background:radial-gradient(ellipse at 50% 40%,#13403c 0%,var(--bg) 70%);touch-action:pan-y}
+#world{position:absolute;left:0;top:0;transform-origin:0 0}
+#deco{position:absolute;left:-7000px;top:-5000px;width:15000px;height:10000px;pointer-events:none}
+.f{position:absolute;width:1440px;height:810px;background:var(--navy);border:1px solid var(--line);overflow:hidden;transform-origin:50% 50%;cursor:pointer}
+.f.on{cursor:default}
+.pad{position:absolute;inset:0;padding:64px 76px;display:flex;flex-direction:column}
+.ey{font:600 15px/1 Inter,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin:0 0 22px}
+h1,h2,h3{font-family:Lora,Georgia,serif;font-weight:500;margin:0;letter-spacing:-.01em}
+h1{font-size:76px;line-height:1.05}
+h2{font-size:54px;line-height:1.12;max-width:1180px}
+h2 em,h1 em{font-style:normal;color:var(--gold)}
+h3{font-size:30px;line-height:1.2}
+p{margin:0}
+b{color:#fff;font-weight:600}
+.lead{font-size:23px;line-height:1.55;color:#dfe3ea;max-width:760px}
+.tags{display:flex;flex-wrap:wrap;gap:12px}
+.tag{border:1px solid var(--gold);color:var(--ink);font-weight:600;font-size:16px;padding:9px 16px}
+.call{border-left:2px solid var(--gold);padding:4px 0 4px 22px;font-size:20px;line-height:1.6;color:#d3d9e2;max-width:760px}
+.call b{color:var(--gold2)}
+.num{font-family:Lora,Georgia,serif;color:var(--gold);font-size:64px;line-height:1}
+.sm{font-size:17px;color:var(--muted);line-height:1.45}
+.rule{border-top:1px solid var(--line)}
+/* capa */
+#capa .left{position:absolute;left:0;top:0;bottom:0;width:61%;padding:70px 64px 56px 76px;display:flex;flex-direction:column;gap:28px}
+#capa .right{position:absolute;right:0;top:0;bottom:0;width:39%;background:var(--photo);border-left:3px solid var(--gold);display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
+#capa .right img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.edu{margin-top:auto;padding-top:22px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.edu div{border-left:1px solid var(--line);padding-left:18px}
+.edu div:first-child{border:0;padding:0}
+.edu strong{display:block;font:500 22px Lora,serif;margin-bottom:4px}
+/* trajetória */
+#traj{background:linear-gradient(180deg,var(--navy),#0c2725)}
+#traj .pad{padding:44px 76px}
+#traj h2{font-size:44px}
+.tline{position:absolute;left:84px;right:84px;height:2px;background:linear-gradient(90deg,var(--gold),rgba(212,185,140,.25))}
+.card{position:absolute;width:1440px;height:810px;background:var(--panel);border:1px solid rgba(212,185,140,.45);transform-origin:50% 50%;overflow:hidden;cursor:pointer}
+.card .cin{position:absolute;inset:0;padding:64px 84px;display:flex;flex-direction:column;gap:44px}
+.card .k{font:600 46px/1 Inter,sans-serif;color:var(--gold);letter-spacing:.06em;text-transform:uppercase}
+.card h3{font-size:92px;line-height:1.04;margin-top:26px;max-width:1150px}
+.card .big{font:500 230px/1 Lora,serif;color:rgba(212,185,140,.16);position:absolute;right:56px;bottom:-30px}
+.card ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:22px;max-width:1080px}
+.card li{font-size:31px;line-height:1.45;color:#dfe3ea;padding-left:34px;position:relative}
+.card li::before{content:"";position:absolute;left:0;top:.62em;width:12px;height:12px;background:var(--gold)}
+/* destaques */
+.hero{margin-top:34px;background:var(--panel);border-left:3px solid var(--gold);display:grid;grid-template-columns:minmax(0,1.25fr) repeat(3,minmax(0,1fr));padding:34px 0}
+.hero>div{padding:0 32px;border-left:1px solid var(--line)}
+.hero>div:first-child{border:0}
+.hero h3{font-size:36px}
+.trio{margin-top:34px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}
+.trio>div{border-top:1px solid var(--line);padding-top:22px}
+.trio .num{font-size:50px;margin:14px 0 10px}
+/* colunas genéricas */
+.cols{margin-top:38px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:26px;flex:1}
+.col{background:var(--panel);padding:28px 26px;display:flex;flex-direction:column;gap:14px}
+.col h3{font-size:27px;color:var(--gold2)}
+.col ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px}
+.col li{font-size:17px;line-height:1.45;color:#d8dde5;padding-left:18px;position:relative}
+.col li::before{content:"";position:absolute;left:0;top:.6em;width:7px;height:7px;background:var(--gold)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--panel2);font-size:15px;padding:5px 11px;color:#e6e9ee}
+.strip{margin-top:26px;display:flex;gap:30px;align-items:center}
+.strip .num{font-size:52px;flex:none}
+/* IA */
+#ia{background:linear-gradient(135deg,#0e2c2a 0%,#134440 100%)}
+.grid6{margin-top:34px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.g{background:rgba(255,255,255,.04);border:1px solid var(--line);padding:24px 26px}
+.g h3{font-size:25px;margin-bottom:8px}
+.g p{font-size:17px;color:#cfd5de;line-height:1.5}
+.foot{margin-top:auto;display:flex;justify-content:space-between;gap:30px;align-items:flex-end;padding-top:20px}
+.foot .call{font-size:18px;max-width:820px}
+/* próximo capítulo */
+#mov .pad{flex-direction:row;gap:64px;align-items:stretch}
+#mov .a{flex:1.4;display:flex;flex-direction:column;gap:26px}
+#mov .b{flex:1;background:var(--panel);padding:36px;display:flex;flex-direction:column;gap:18px;border-top:3px solid var(--gold)}
+#mov .b img{width:132px;height:132px;border-radius:50%;object-fit:cover;border:3px solid var(--gold);background:var(--photo)}
+.kv{display:flex;flex-direction:column;gap:2px}
+.kv span{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.kv a,.kv strong{color:var(--ink);font-size:18px;font-weight:500;text-decoration:none;overflow-wrap:anywhere}
+.kv a:hover{color:var(--gold2)}
+.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:auto}
+.three div{border-top:1px solid var(--gold);padding-top:16px}
+.three h3{font-size:26px;margin-bottom:6px}
+.three p{font-size:16px;color:var(--muted)}
+.pg{position:absolute;right:40px;bottom:26px;font-size:13px;letter-spacing:.2em;color:#5f7a76}
+/* indicadores */
+.kpis{margin-top:34px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.kp{background:var(--panel);padding:24px 26px;border-top:2px solid var(--gold);display:flex;flex-direction:column;gap:8px}
+.kp .tg{font:500 40px/1 Lora,serif;color:var(--gold)}
+.kp h3{font-size:22px}
+.kp p{font-size:16.5px;color:#cfd5de;line-height:1.5}
+html.flat .kpis{grid-template-columns:minmax(0,1fr);gap:12px}
+html.flat .kp .tg{font-size:30px}
+/* depoimentos */
+#dep .pad{padding:46px 76px 50px}
+#dep h2{font-size:48px}
+#dep .ey{margin-bottom:16px}
+.quotes{margin-top:26px;min-height:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:20px;flex:1}
+.q{background:var(--panel);padding:22px 26px 18px;display:flex;flex-direction:column;gap:10px;position:relative}
+.q::before{content:"\201C";position:absolute;right:22px;top:14px;font:500 90px/1 Lora,serif;color:rgba(212,185,140,.35)}
+.q p{font:400 19px/1.45 Lora,Georgia,serif;color:var(--ink);padding-right:50px}
+.q span{margin-top:auto;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);border-top:1px solid var(--line);padding-top:12px}
+.q.lead1{grid-row:span 2;padding:28px 28px 22px;border-left:3px solid var(--gold)}
+.q.lead1::before{position:static;line-height:.7;color:var(--gold)}
+.q.lead1 p{font-size:21px;padding:0}
+.q.lead1::before{font-size:90px;height:36px}
+html.flat #dep .pad{padding:26px 20px}
+html.flat #dep h2{font-size:28px}
+html.flat .quotes{grid-template-columns:minmax(0,1fr);gap:14px}
+html.flat .q{padding:22px 20px}
+html.flat .q p{font-size:18px}
+html.flat .q::before{font-size:70px}
+html.flat .q.lead1{grid-row:auto}
+html.flat .q.lead1 p{font-size:19px}
+/* barra */
+#bar{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:6px;background:rgba(10,35,33,.86);backdrop-filter:blur(8px);border:1px solid var(--line);padding:6px;z-index:5}
+#bar button{all:unset;cursor:pointer;color:var(--ink);font:500 14px Inter,sans-serif;height:40px;min-width:40px;padding:0 12px;display:flex;align-items:center;justify-content:center;gap:6px}
+#bar button:hover,#bar button:focus-visible{background:var(--panel2);color:var(--gold2)}
+#bar .lbl{font-size:13px;color:var(--muted);padding:0 10px;min-width:150px;text-align:center;white-space:nowrap}
+#bar .lbl strong{color:var(--ink);font-weight:600}
+#prog{position:fixed;left:0;top:0;height:3px;background:var(--gold);transition:width .6s;z-index:5}
+#hint{position:fixed;left:50%;top:calc(22px + env(safe-area-inset-top,0px));transform:translateX(-50%);font-size:13px;color:var(--muted);letter-spacing:.06em;transition:opacity .6s;pointer-events:none;white-space:nowrap}
+/* modo celular: rolagem */
+html.flat body{overflow:auto;height:auto}
+html.flat #stage{position:static;overflow:visible;background:var(--bg);padding:16px max(16px,env(safe-area-inset-left,0px)) 90px max(16px,env(safe-area-inset-right,0px))}
+html.flat #world{position:static;transform:none!important;display:flex;flex-direction:column;gap:18px}
+html.flat #deco,html.flat .tline,html.flat .pg,html.flat #hint,html.flat .card .big{display:none}
+html.flat .f,html.flat .card{position:relative;left:auto!important;top:auto!important;width:auto;height:auto;transform:none!important;cursor:default}
+html.flat .pad,html.flat #traj .pad,html.flat #capa .left,html.flat .card .cin{position:static;padding:26px 20px}
+html.flat #capa .right{position:static;width:auto;height:300px;border:0;border-bottom:3px solid var(--gold)}
+html.flat #capa{display:flex;flex-direction:column-reverse}
+html.flat #capa .left{width:auto;gap:18px}
+html.flat h1{font-size:38px}
+html.flat h2,html.flat #traj h2{font-size:28px}
+html.flat h3,html.flat .hero h3{font-size:22px}
+html.flat .lead{font-size:17px}
+html.flat .call,html.flat .foot .call{font-size:16px}
+html.flat .ey{font-size:12px;margin-bottom:14px}
+html.flat .num{font-size:40px}
+html.flat .edu,html.flat .hero,html.flat .trio,html.flat .cols,html.flat .grid6,html.flat .three,html.flat .card .cin{grid-template-columns:minmax(0,1fr);gap:16px}
+html.flat .hero{padding:20px 0}
+html.flat .hero>div{border:0;padding:6px 20px}
+html.flat .edu div{border:0;padding:0}
+html.flat #trajcards{display:flex;flex-direction:column;gap:12px;margin-top:20px}
+html.flat .card{border-color:var(--line)}
+html.flat .card .k{font-size:13px}
+html.flat .card h3{font-size:24px;margin-top:10px}
+html.flat .card ul{gap:10px}
+html.flat .card li{font-size:15px;padding-left:18px}
+html.flat .card li::before{width:7px;height:7px}
+html.flat #mov .pad,html.flat .foot,html.flat .strip{flex-direction:column;align-items:stretch;gap:20px}
+html.flat #bar{display:none}
+@media (prefers-reduced-motion:reduce){#prog,#hint{transition:none}}
+</style>
+</head>
+<body>
+
+<div id="prog"></div>
+<div id="hint">Use as setas, a barra abaixo ou clique em um quadro</div>
+<div id="stage">
+<div id="world">
+<svg id="deco" viewBox="-7000 -5000 15000 10000" aria-hidden="true"></svg>
+
+<section class="f" id="capa" data-x="0" data-y="0" data-s="1" data-r="0" data-t="Capa">
+  <div class="left">
+    <p class="ey">Gestão · Suporte · Implantação · Dados · IA</p>
+    <h1>Emanuel Melo Alexandre</h1>
+    <p class="lead"><b>18 anos</b> na <b>Betha Sistemas</b> transformando legislação, dados e sistemas complexos da gestão pública em operação que funciona: do help desk à coordenação de suporte, serviços e implantação.</p>
+    <div class="tags"><span class="tag">Gestão de pessoas</span><span class="tag">Implantação</span><span class="tag">Dados e integrações</span><span class="tag">IA aplicada</span></div>
+    <p class="call">Participei da <b>maior migração de sistemas desktop para SaaS em nuvem</b> da área pública já feita no país e liderei o suporte na chegada do <b>eSocial</b> à gestão pública.</p>
+    <div class="edu rule">
+      <div><p class="ey" style="font-size:12px;margin-bottom:10px">Formação</p><strong>ESUCRI</strong><span class="sm">Analista de Sistemas</span></div>
+      <div><p class="ey" style="font-size:12px;margin-bottom:10px">Base</p><strong>Criciúma/SC</strong><span class="sm">Presencial, híbrido ou remoto</span></div>
+      <div><p class="ey" style="font-size:12px;margin-bottom:10px">Status</p><strong>Disponível</strong><span class="sm">Aberto a novos desafios</span></div>
+    </div>
+  </div>
+  <div class="right"><img src="foto.jpg" alt="Foto de Emanuel Melo Alexandre"></div>
+</section>
+
+<section class="f" id="traj" data-x="3700" data-y="-900" data-s="2.2" data-r="0" data-t="Trajetória">
+  <div class="pad">
+    <p class="ey">Trajetória · 18 anos em 8 capítulos</p>
+    <h2>Do primeiro chamado à <em>maior migração para a nuvem</em> do setor público.</h2>
+  </div>
+  <div class="tline" style="top:394px"></div>
+  <div class="tline" style="top:598px"></div>
+  <div id="trajcards">
+  <article class="card" data-cx="232" data-cy="394" data-cs=".2" data-t="1 · Suporte"><div class="cin"><div><p class="k">Capítulo 1 · Início</p><h3>Atendente de suporte e help desk</h3></div><ul><li>Atendimento direto aos clientes do setor público, entendendo o problema do usuário e a regra de negócio por trás dele.</li><li>Aqui nasceu a base de tudo o que veio depois: escuta, senso de urgência e foco em resolver.</li></ul><span class="big">1</span></div></article>
+  <article class="card" data-cx="557" data-cy="394" data-cs=".2" data-t="2 · Relatórios"><div class="cin"><div><p class="k">Capítulo 2 · Desenvolvimento</p><h3>Relatórios e artefatos programáveis</h3></div><ul><li>Desenvolvimento de relatórios e artefatos programáveis em SQL.</li><li>Desenvolvimento visual com ferramentas PowerBuilder.</li><li>Soluções sob medida que estendem o sistema sem alterar o produto.</li></ul><span class="big">2</span></div></article>
+  <article class="card" data-cx="883" data-cy="394" data-cs=".2" data-t="3 · Migração"><div class="cin"><div><p class="k">Capítulo 3 · Dados</p><h3>Migração entre bancos de dados</h3></div><ul><li>Migração de dados entre diferentes bancos: SQL Server, Oracle e PostgreSQL.</li><li>Migrações para ambientes em nuvem via API.</li><li>Mapeamento, conversão, saneamento e validação em bases produtivas.</li></ul><span class="big">3</span></div></article>
+  <article class="card" data-cx="1208" data-cy="394" data-cs=".2" data-t="4 · Integrações"><div class="cin"><div><p class="k">Capítulo 4 · Integrações</p><h3>Sistemas conversando entre si</h3></div><ul><li>Desenvolvimento de integrações em PowerScript.</li><li>Conexão com bancos, sistemas externos e arquivos XML.</li><li>Análise de logs e validação de layouts para garantir a integridade dos dados.</li></ul><span class="big">4</span></div></article>
+  <article class="card" data-cx="232" data-cy="598" data-cs=".2" data-t="5 · Implantações"><div class="cin"><div><p class="k">Capítulo 5 · Implantação</p><h3>Responsável técnico por implantações</h3></div><ul><li>Implantações em clientes pequenos, médios e grandes.</li><li>Foco em folha de pagamento pública: estatutários, CLT, RPPS e legislações próprias de cada ente.</li><li>Requisitos, parametrização, migração, treinamento e estabilização.</li></ul><span class="big">5</span></div></article>
+  <article class="card" data-cx="557" data-cy="598" data-cs=".2" data-t="6 · TCE/SC"><div class="cin"><div><p class="k">Capítulo 6 · Controle externo</p><h3>TCE/SC e e-Sfinge Online</h3></div><ul><li>Desenvolvimento de artefatos de verificação de infrações junto ao TCE/SC.</li><li>Participante ativo das primeiras integrações da folha de pagamento com o e-Sfinge Online.</li></ul><span class="big">6</span></div></article>
+  <article class="card" data-cx="883" data-cy="598" data-cs=".2" data-t="7 · eSocial"><div class="cin"><div><p class="k">Capítulo 7 · Gestão · 2022</p><h3>Líder do suporte na virada do eSocial</h3></div><ul><li>Responsável pela equipe de suporte da então maior empresa de sistemas para gestão pública do Brasil.</li><li>Justamente no momento em que o eSocial chegou à gestão pública, com prazos legais e alto volume.</li><li>Coordenação das equipes de suporte de Pessoal, Educação e Saúde e da equipe de desenvolvimento de artefatos e relatórios dessas áreas.</li></ul><span class="big">7</span></div></article>
+  <article class="card" data-cx="1208" data-cy="598" data-cs=".2" data-t="8 · Nuvem"><div class="cin"><div><p class="k">Capítulo 8 · Serviços · 2024–2026</p><h3>Implantações em série e a ida para a nuvem</h3></div><ul><li>Coordenador de Suporte, Serviços e Implantação, responsável por inúmeras implantações em 2024, 2025 e 2026.</li><li>Participação na maior migração de sistemas desktop para SaaS em nuvem da área pública já realizada no país.</li></ul><span class="big">8</span></div></article>
+  </div>
+  <p class="pg" style="bottom:40px">Clique em um capítulo para aproximar</p>
+</section>
+
+<section class="f" id="dest" data-x="3250" data-y="1950" data-s="1.1" data-r="-4" data-t="Destaques">
+  <div class="pad">
+    <p class="ey">Destaques</p>
+    <h2>Nos momentos de maior pressão do setor, <em>eu estava na linha de frente.</em></h2>
+    <div class="hero">
+      <div><h3>Desktop → SaaS</h3><p class="sm" style="margin-top:10px">Maior migração de sistemas desktop para nuvem da área pública no país</p><p class="ey" style="font-size:12px;margin:16px 0 0">Coordenação de serviços · 2024–2026</p></div>
+      <div><p class="num">18</p><p class="sm" style="margin-top:10px">anos evoluindo do help desk à coordenação</p></div>
+      <div><p class="num">8</p><p class="sm" style="margin-top:10px">frentes dominadas: suporte, código, dados, integração, implantação, controle externo, gestão e nuvem</p></div>
+      <div><p class="num">15→40</p><p class="sm" style="margin-top:10px">NPS em menos de 1 ano, entre 2025 e 2026</p></div>
+    </div>
+    <div class="trio">
+      <div><h3>eSocial</h3><p class="num">2022</p><p class="sm">Liderança do suporte da maior empresa do segmento na chegada do eSocial à gestão pública.</p></div>
+      <div><h3>e-Sfinge Online</h3><p class="num">1ª onda</p><p class="sm">Participação nas primeiras integrações da folha de pagamento com o TCE/SC.</p></div>
+      <div><h3>Implantações</h3><p class="num">P · M · G</p><p class="sm">Responsável técnico do começo ao fim, em clientes de todos os portes.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="f" id="tec" data-x="250" data-y="2500" data-s="1" data-r="3" data-t="Base técnica">
+  <div class="pad">
+    <p class="ey">Base técnica</p>
+    <h2>Falo a língua do <em>desenvolvedor</em>, do cliente e da diretoria.</h2>
+    <div class="cols">
+      <div class="col"><h3>Dados</h3><ul><li>Queries complexas, procedures e scripts de correção</li><li>Migração e saneamento em bases produtivas</li><li>ETL e validação de integridade</li></ul><div class="chips" style="margin-top:auto"><span class="chip">SQL Server</span><span class="chip">Oracle</span><span class="chip">PostgreSQL</span></div></div>
+      <div class="col"><h3>Desenvolvimento</h3><ul><li>Relatórios e artefatos programáveis</li><li>Desenvolvimento visual e integrações</li><li>APIs e migração para nuvem</li></ul><div class="chips" style="margin-top:auto"><span class="chip">PowerBuilder</span><span class="chip">PowerScript</span><span class="chip">SQL</span><span class="chip">XML</span><span class="chip">Java</span><span class="chip">Blip</span></div></div>
+      <div class="col"><h3>Negócio público</h3><ul><li>Folha de pagamento: estatutários, CLT e RPPS</li><li>Legislações próprias de cada ente</li><li>Obrigações legais e prestação de contas</li></ul><div class="chips" style="margin-top:auto"><span class="chip">eSocial</span><span class="chip">e-Sfinge</span><span class="chip">TCE/SC</span></div></div>
+      <div class="col"><h3>Gestão por dados</h3><ul><li>Indicadores de atendimento e SLA</li><li>Painéis para decisão da liderança</li><li>Diagnóstico a partir de logs e bases</li></ul><div class="chips" style="margin-top:auto"><span class="chip">Power BI</span><span class="chip">CRM</span><span class="chip">ANS/SLA</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="f" id="ia" data-x="-2700" data-y="1500" data-s="1.2" data-r="-3" data-t="IA aplicada">
+  <div class="pad">
+    <p class="ey">Diferencial · IA aplicada a processos</p>
+    <h2>IA como <em>multiplicador de equipe</em>: menos tarefa repetitiva, mais tempo para o cliente.</h2>
+    <div class="grid6">
+      <div class="g"><h3>Triagem automática</h3><p>Chamados classificados, priorizados e encaminhados com IA, antes de chegar ao analista.</p></div>
+      <div class="g"><h3>Central de ajuda interativa</h3><p>Base de conhecimento que responde ao usuário na hora e reduz a fila de suporte.</p></div>
+      <div class="g"><h3>Portais de gestão</h3><p>Portais e painéis próprios para acompanhar contas, atendimento e indicadores.</p></div>
+      <div class="g"><h3>Chatbots na Blip</h3><p>Responsável pela plataforma de atendimento conversacional: monitoramento e criação de fluxos, incluindo a primeira pesquisa de NPS da empresa.</p></div>
+      <div class="g"><h3>Análise de dados</h3><p>Bases, logs e planilhas viram diagnóstico e indicador em minutos, não em dias.</p></div>
+      <div class="g"><h3>Conhecimento vivo</h3><p>Procedimentos, boas práticas e treinamentos criados e atualizados com IA.</p></div>
+    </div>
+    <div class="foot">
+      <p class="call">Esta apresentação foi criada com IA, a partir de um modelo e de um texto. <b>É assim que eu trabalho.</b></p>
+    </div>
+  </div>
+</section>
+
+<section class="f" id="cap" data-x="-3100" data-y="-1250" data-s="1.2" data-r="2" data-t="O que eu entrego">
+  <div class="pad">
+    <p class="ey">Escopo de atuação</p>
+    <h2>O que eu entrego numa operação, <em>da estratégia ao resultado.</em></h2>
+    <div class="cols">
+      <div class="col"><h3>Gestão de pessoas</h3><ul><li>Recrutar, selecionar e integrar times</li><li>Formar analistas até a autonomia</li><li>Gestão por consequência: metas claras, feedback e desenvolvimento</li><li>Manter o time unido sob prazo legal</li></ul></div>
+      <div class="col"><h3>Operação e serviços</h3><ul><li>Estruturar suporte N1 a N3, filas e ANS/SLA</li><li>Indicadores em Power BI e rituais de acompanhamento</li><li>Procedimentos e base de conhecimento</li><li>Relacionamento com clientes e CRM</li></ul></div>
+      <div class="col"><h3>Implantação e projetos</h3><ul><li>Implantação ponta a ponta: requisitos, cronograma, migração, treinamento e estabilização</li><li>Planejar migrações para a nuvem</li><li>Transformar legislação em regra de sistema</li></ul></div>
+      <div class="col"><h3>Transformação digital</h3><ul><li>Automação de processos com IA</li><li>Redesenho de fluxos de atendimento</li><li>Ponte entre times técnicos, negócio e cliente</li><li>Decisão baseada em dados</li></ul></div>
+    </div>
+    <div class="strip">
+      <p class="num">+6</p>
+      <div><p class="sm" style="margin-bottom:10px">áreas onde posso contribuir, sem me prender a um único cargo</p><div class="chips"><span class="chip">Gestão de suporte e serviços</span><span class="chip">Implantação e projetos</span><span class="chip">Customer Success</span><span class="chip">Operações</span><span class="chip">Dados e automação</span><span class="chip">Transformação digital</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="f" id="kpi" data-x="-5000" data-y="-2200" data-s="1" data-r="3" data-t="Indicadores">
+  <div class="pad">
+    <p class="ey">Gestão por indicadores</p>
+    <h2>Decisão com número na mão, <em>não com achismo.</em></h2>
+    <div class="kpis">
+      <div class="kp"><p class="tg">CSAT</p><h3>Satisfação a cada atendimento</h3><p>Acompanhamento da satisfação do cliente por analista, equipe e tipo de demanda.</p></div>
+      <div class="kp" style="background:var(--panel2)"><p class="tg">NPS 15 → 40</p><h3>Em menos de 1 ano</h3><p>Criei na Blip os fluxos da primeira pesquisa de NPS da empresa e conduzi os planos de ação entre 2025 e 2026.</p></div>
+      <div class="kp"><p class="tg">SLA</p><h3>Prazos de atendimento</h3><p>Gestão de ANS/SLA de resposta e solução, filas e prioridades.</p></div>
+      <div class="kp"><p class="tg">Qualidade</p><h3>Qualidade do atendimento</h3><p>Avaliação dos atendimentos, feedback e desenvolvimento contínuo da equipe.</p></div>
+      <div class="kp"><p class="tg">Metas</p><h3>Serviços e faturamento</h3><p>Acompanhamento das metas de serviços e do faturamento gerado pela área.</p></div>
+      <div class="kp"><p class="tg">Contratos</p><h3>Análise de contratos</h3><p>Escopo e condições contratadas confrontados com o que é entregue e faturado.</p></div>
+    </div>
+    <p class="call" style="margin-top:auto;max-width:none">Indicadores acompanhados em <b>painéis no Power BI</b>, transformados em rotina de gestão com a equipe e a liderança.</p>
+  </div>
+</section>
+
+<section class="f" id="dep" data-x="-3000" data-y="-3050" data-s="1" data-r="-2" data-t="O que dizem">
+  <div class="pad">
+    <p class="ey">O que dizem colegas e clientes</p>
+    <h2>Liderança que as pessoas <em>lembram.</em></h2>
+    <div class="quotes">
+      <div class="q"><p>Você sempre foi um líder excelente. Me incentivou a crescer e a melhorar, e eu sempre vou ser grata por isso. Tenho certeza de que você vai continuar inspirando as pessoas que cruzam seu caminho.</p><span>Analista da equipe que liderei</span></div>
+      <div class="q"><p>Um profissional super competente, com um coração gigante. Tudo aquilo com que você contribuiu ficará marcado. Obrigado por toda a disponibilidade e por toda a ajuda.</p><span>Parceira de negócios</span></div>
+      <div class="q"><p>Te admiro muito em todos os aspectos. Extremamente competente e inteligente. Obrigada por todos os momentos de aprendizado e parceria que tivemos.</p><span>Colega de trabalho</span></div>
+      <div class="q"><p>Você sempre foi alguém muito especial, que fez a diferença aqui dentro. Você é muito bom.</p><span>Colega de equipe</span></div>
+      <div class="q"><p>Sempre preocupado com o cliente e com o time. Me deu minha primeira oportunidade, me orientou e me promoveu. Além de chefe, sempre foi um amigo.</p><span>Analista que contratei e promovi</span></div>
+      <div class="q"><p>Elogiei o seu trabalho e o do pessoal da sua equipe, que sempre me atende tão bem. Você é um bom amigo que eu fiz através do trabalho.</p><span>Cliente do setor público</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="f" id="mov" data-x="-250" data-y="-2550" data-s="1" data-r="0" data-t="Próximo capítulo">
+  <div class="pad">
+    <div class="a">
+      <p class="ey" style="margin:0">Próximo capítulo</p>
+      <h2>A mesma vontade do <em>primeiro chamado</em>, com 18 anos de bagagem.</h2>
+      <p class="lead">Gosto de problema difícil: legislação que muda, cliente com prazo, sistema que precisa migrar sem parar a operação. Foi o que fiz por 18 anos, e é a energia que quero levar para o próximo time.</p>
+      <div class="three">
+        <div><h3>Aprendo rápido</h3><p>Do PowerBuilder à nuvem e à IA, sempre na frente da mudança.</p></div>
+        <div><h3>Construo times</h3><p>Recruto, formo e desenvolvo gente que entrega sozinha.</p></div>
+        <div><h3>Resolvo</h3><p>Do código à diretoria, levo o problema até o fim.</p></div>
+      </div>
+    </div>
+    <div class="b">
+      <img src="foto.jpg" alt="">
+      <h3>Vamos conversar?</h3>
+      <div class="kv"><span>E-mail</span><strong>emanuel.melo87@gmail.com</strong></div>
+      <div class="kv"><span>LinkedIn</span><a href="https://www.linkedin.com/in/emanuelmelo87" target="_blank" rel="noopener">linkedin.com/in/emanuelmelo87</a></div>
+      <div class="kv"><span>Currículo</span><a href="https://emanuelmelo87.github.io/curriculo/" target="_blank" rel="noopener">emanuelmelo87.github.io/curriculo</a></div>
+      <div class="kv"><span>Modelo</span><strong>Presencial, híbrido ou remoto</strong></div>
+    </div>
+  </div>
+</section>
+</div>
+</div>
+
+<nav id="bar" aria-label="Navegação da apresentação">
+  <button id="bPrev" aria-label="Anterior">‹</button>
+  <span class="lbl" id="lbl"></span>
+  <button id="bNext" aria-label="Próximo">›</button>
+  <button id="bOver">Visão geral</button>
+  <button id="bFull">Tela cheia</button>
+</nav>
+
+<script>
+{
+const world=document.getElementById('world'),stage=document.getElementById('stage');
+const frames=[...document.querySelectorAll('.f')];
+const W=1440,H=810,rad=d=>d*Math.PI/180;
+const T={};
+frames.forEach(f=>{
+  const x=+f.dataset.x,y=+f.dataset.y,s=+f.dataset.s,r=+f.dataset.r;
+  f.style.left=(x-W/2)+'px';f.style.top=(y-H/2)+'px';
+  f.style.transform=`rotate(${r}deg) scale(${s})`;
+  T[f.id]={x,y,s,r,el:f,t:f.dataset.t};
+  f.querySelectorAll('.card').forEach((c,i)=>{
+    const cx=+c.dataset.cx,cy=+c.dataset.cy,cs=+c.dataset.cs;
+    c.style.left=(cx-W/2)+'px';c.style.top=(cy-H/2)+'px';c.style.transform=`scale(${cs})`;
+    const dx=(cx-W/2)*s,dy=(cy-H/2)*s,a=rad(r);
+    const id=f.id+'-c'+i;c.id=id;
+    T[id]={x:x+dx*Math.cos(a)-dy*Math.sin(a),y:y+dx*Math.sin(a)+dy*Math.cos(a),s:s*cs,r,el:c,t:c.dataset.t};
+  });
+});
+// visão geral: caixa que envolve todos os quadros
+let x0=1e9,y0=1e9,x1=-1e9,y1=-1e9;
+frames.forEach(f=>{const o=T[f.id],a=rad(o.r),hw=W*o.s/2,hh=H*o.s/2;
+  [[-1,-1],[1,-1],[1,1],[-1,1]].forEach(([u,v])=>{const px=o.x+u*hw*Math.cos(a)-v*hh*Math.sin(a),py=o.y+u*hw*Math.sin(a)+v*hh*Math.cos(a);
+    x0=Math.min(x0,px);x1=Math.max(x1,px);y0=Math.min(y0,py);y1=Math.max(y1,py)})});
+T.over={x:(x0+x1)/2,y:(y0+y1)/2,s:Math.max((x1-x0+600)/W,(y1-y0+600)/H),r:0,t:'Visão geral'};
+const steps=['over','capa','traj',...[0,1,2,3,4,5,6,7].map(i=>'traj-c'+i),'traj','dest','tec','ia','cap','kpi','dep','mov','over'];
+// decoração: anéis e caminho
+const deco=document.getElementById('deco');
+const main=['capa','traj','dest','tec','ia','cap','kpi','dep','mov'];
+let d='M'+T.capa.x+' '+T.capa.y;
+for(let i=1;i<main.length;i++){const a=T[main[i-1]],b=T[main[i]];const mx=(a.x+b.x)/2,my=(a.y+b.y)/2,k=.25;d+=` Q${mx-(b.y-a.y)*k} ${my+(b.x-a.x)*k} ${b.x} ${b.y}`;}
+deco.innerHTML=[1500,2700,3900,5100].map((r,i)=>`<circle cx="0" cy="0" r="${r}" fill="none" stroke="#d4b98c" stroke-opacity="${.14-i*.025}" stroke-width="${6-i}"/>`).join('')
+ +`<path d="${d}" fill="none" stroke="#d4b98c" stroke-opacity=".45" stroke-width="10" stroke-dasharray="40 34" stroke-linecap="round"/>`
+ +main.map(id=>`<circle cx="${T[id].x}" cy="${T[id].y}" r="40" fill="#d4b98c" fill-opacity=".7"/>`).join('')
+ +`<text x="-5200" y="4300" font-family="Lora,serif" font-size="2600" fill="#d4b98c" fill-opacity=".05">18</text>`;
+// câmera
+let cam={x:0,y:0,s:1,r:0},cur=0,anim=0;
+const flatMQ=matchMedia('(max-width: 760px)');
+function target(id){const o=T[id],vw=innerWidth,vh=innerHeight-(id==='over'?0:70);
+  const k=Math.min(vw/(W*o.s),vh/(H*o.s))*(id==='over'?1:.94);return{x:o.x,y:o.y+(id==='over'?0:35/k),s:k,r:o.r}}
+function apply(c){world.style.transform=`translate(${innerWidth/2}px,${innerHeight/2}px) scale(${c.s}) rotate(${-c.r}deg) translate(${-c.x}px,${-c.y}px)`}
+const ease=t=>t<.5?4*t*t*t:1-(-2*t+2)**3/2;
+function fly(to,ms){cancelAnimationFrame(anim);const from={...cam};
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches||!ms){cam=to;apply(cam);return}
+  const dist=Math.hypot(to.x-from.x,to.y-from.y)*Math.min(from.s,to.s)/innerWidth;
+  const dip=Math.min(1.6,dist*.5),t0=performance.now();world.style.willChange='transform';
+  const fr=now=>{let t=Math.min(1,(now-t0)/ms),e=ease(t);
+    const ls=Math.log(from.s)+(Math.log(to.s)-Math.log(from.s))*e;
+    cam={x:from.x+(to.x-from.x)*e,y:from.y+(to.y-from.y)*e,s:Math.exp(ls)/(1+dip*Math.sin(Math.PI*t)),r:from.r+(to.r-from.r)*e};
+    apply(cam);if(t<1)anim=requestAnimationFrame(fr);else{world.style.willChange='auto'}};
+  anim=requestAnimationFrame(fr)}
+const lbl=document.getElementById('lbl'),prog=document.getElementById('prog');
+function go(i,ms=1300){cur=Math.max(0,Math.min(steps.length-1,i));const id=steps[cur];
+  document.querySelectorAll('.on').forEach(e=>e.classList.remove('on'));if(T[id].el)T[id].el.classList.add('on');
+  lbl.innerHTML=`<strong>${T[id].t}</strong> · ${cur+1}/${steps.length}`;prog.style.width=(cur/(steps.length-1)*100)+'%';
+  if(!flatMQ.matches)fly(target(id),ms);if(cur>0)document.getElementById('hint').style.opacity=0}
+const next=()=>go(cur+1),prev=()=>go(cur-1);
+document.getElementById('bNext').onclick=next;document.getElementById('bPrev').onclick=prev;
+document.getElementById('bOver').onclick=()=>{if(steps[cur]==='over'){go(1)}else{cur=steps.length-1;go(0)}};
+document.getElementById('bFull').onclick=()=>{try{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen().catch(()=>{})}catch(e){}};
+addEventListener('keydown',e=>{if(flatMQ.matches)return;
+  if(['ArrowRight','ArrowDown','PageDown',' ','Enter'].includes(e.key)){e.preventDefault();next()}
+  else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(e.key)){e.preventDefault();prev()}
+  else if(e.key==='Home')go(0);else if(e.key==='End')go(steps.length-1);
+  else if(e.key==='Escape'||e.key==='o')go(0)});
+stage.addEventListener('click',e=>{if(flatMQ.matches)return;
+  const c=e.target.closest('.card,.f');if(!c||e.target.closest('a'))return;
+  let el=c;if(c.classList.contains('card')&&steps[cur]!=='traj'&&!steps[cur].startsWith('traj-'))el=c.closest('.f');
+  if(el.classList.contains('on'))return;
+  const i=steps.indexOf(el.id);if(i>=0)go(i)});
+let sx=null;stage.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
+stage.addEventListener('touchend',e=>{if(sx===null||flatMQ.matches)return;const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50)dx<0?next():prev();sx=null});
+function layout(){document.documentElement.classList.toggle('flat',flatMQ.matches);if(!flatMQ.matches){cam=target(steps[cur]);apply(cam)}}
+addEventListener('resize',layout);flatMQ.addEventListener?.('change',layout);
+layout();go(0,0);
+if(!flatMQ.matches)setTimeout(()=>{if(cur===0)go(1,1800)},1400);
+}
+</script>
+</body>
+</html>
